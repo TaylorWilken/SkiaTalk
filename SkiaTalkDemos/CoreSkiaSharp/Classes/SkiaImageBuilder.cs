@@ -22,22 +22,23 @@
             var brush = new SKPaint
                             {
                                 Typeface = font,
-                                TextSize = 58.0f,
+                                TextSize = 60.0f,
                                 IsAntialias = true,
-                                Color = new SKColor(255, 255, 255, 128)
+                                Color = new SKColor(255, 255, 255, 255),
+                                Style = SKPaintStyle.Fill
                             };
-            imageCanvas.DrawText(randomizer.GetRandomQuote(), 50, 400, brush);
+            imageCanvas.DrawText(randomizer.GetRandomQuote(), 50, 950, brush);
             imageCanvas.Flush();
 
             // draw a random image
             var iconFileStream = File.OpenRead(randomizer.GetRandomImage());
             var iconBitmap = SKBitmap.Decode(iconFileStream);
-            imageCanvas.DrawBitmap(iconBitmap, new SKRect(50, 50, 250, 250));
+            imageCanvas.DrawBitmap(iconBitmap, new SKRect(704, 300, 1216, 812));
             imageCanvas.Flush();
 
             // draw a rectangle
-            var rectRect = new SKRect(20, 20, 300, 120);
-            var rectBrush = new SKPaint { Color = new SKColor(255, 50, 50, 200) };
+            var rectRect = new SKRect(20, 20, 1900, 1000);
+            var rectBrush = new SKPaint { Color = new SKColor(255, 255, 255, 200), Style = SKPaintStyle.Stroke };
             imageCanvas.DrawRect(rectRect, rectBrush);
             imageCanvas.Flush();
 

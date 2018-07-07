@@ -2,6 +2,7 @@
 {
     using System;
     using System.Diagnostics;
+    using System.IO;
 
     using CoreSkiaSharp.Classes;
 
@@ -14,10 +15,12 @@
             var randomizer = new AssetRandomizer();
             var imageBuilder = new SkiaImageBuilder();
 
+            randomizer.ClearOutputPath();
+
             var jobTimer = new Stopwatch();
             jobTimer.Start();
             Console.WriteLine("Drawing Test Images with Skia...");
-            for (var i = 0; i < testCount; i++)
+            for (var i = 1; i <= testCount; i++)
             {
                 Console.WriteLine("Drawing Image {0}", i);
                 imageBuilder.BuildSingleTestImage(randomizer, i);

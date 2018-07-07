@@ -5,6 +5,10 @@
 
     public class AssetRandomizer
     {
+        private readonly string _assetFolder = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+            "SkiaTalk");
+
         private readonly string[] _backgrounds = { "BG1.jpg", "BG2.jpg", "BG3.jpg", "BG4.jpg", "BG5.jpg" };
 
         private readonly string[] _fonts =
@@ -24,28 +28,35 @@
 
         private readonly Random _randomizer = new Random();
 
-        private readonly string _assetFolder = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-            "SkiaTalk");
-
-        public string GetRandomBackground()
+        public void ClearOutputPath()
         {
-            return Path.Combine(_assetFolder, "assets", "backgrounds", _backgrounds[_randomizer.Next(1, 5)]);
-        }
+            var outPath = Path.Combine(this._assetFolder, "skiaoutput");
 
-        public string GetRandomFont()
-        {
-            return Path.Combine(_assetFolder, "assets", "fonts", _fonts[this._randomizer.Next(1, 5)]);
-        }
-
-        public string GetRandomImage()
-        {
-            return Path.Combine(_assetFolder, "assets", "images", _images[this._randomizer.Next(1, 5)]);
+            foreach (var filePath in Directory.GetFiles(outPath)) File.Delete(filePath);
         }
 
         public string GetOutputImage(int index)
         {
-            return Path.Combine(_assetFolder, "skiaoutput", string.Format("TestImage_{0}.png", index));
+            return Path.Combine(this._assetFolder, "skiaoutput", string.Format("TestImage_{0}.png", index));
+        }
+
+        public string GetRandomBackground()
+        {
+            return Path.Combine(
+                this._assetFolder,
+                "assets",
+                "backgrounds",
+                this._backgrounds[this._randomizer.Next(1, 5)]);
+        }
+
+        public string GetRandomFont()
+        {
+            return Path.Combine(this._assetFolder, "assets", "fonts", this._fonts[this._randomizer.Next(1, 5)]);
+        }
+
+        public string GetRandomImage()
+        {
+            return Path.Combine(this._assetFolder, "assets", "images", this._images[this._randomizer.Next(1, 5)]);
         }
 
         public string GetRandomQuote()
