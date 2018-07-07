@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardSystemDrawing", "StandardSystemDrawing\StandardSystemDrawing.csproj", "{280DB207-292B-4654-A69F-F2FF742DE206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreSkiaSharp", "CoreSkiaSharp\CoreSkiaSharp.csproj", "{F62A6489-DFD5-41AE-ABBB-FCB240439688}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreSkiaSharp", "CoreSkiaSharp\CoreSkiaSharp.csproj", "{F62A6489-DFD5-41AE-ABBB-FCB240439688}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,8 +10,4 @@
     <PackageReference Include="SkiaSharp" Version="1.60.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
-
 </Project>

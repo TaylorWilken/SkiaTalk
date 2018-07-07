@@ -1,6 +1,7 @@
 ﻿namespace CoreSkiaSharp.Classes
 {
     using System;
+    using System.IO;
 
     public class AssetRandomizer
     {
@@ -23,19 +24,28 @@
 
         private readonly Random _randomizer = new Random();
 
+        private readonly string _assetFolder = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+            "SkiaTalk");
+
         public string GetRandomBackground()
         {
-            return this._backgrounds[this._randomizer.Next(1, 5)];
+            return Path.Combine(_assetFolder, "assets", "backgrounds", _backgrounds[_randomizer.Next(1, 5)]);
         }
 
         public string GetRandomFont()
         {
-            return this._fonts[this._randomizer.Next(1, 5)];
+            return Path.Combine(_assetFolder, "assets", "fonts", _fonts[this._randomizer.Next(1, 5)]);
         }
 
         public string GetRandomImage()
         {
-            return this._images[this._randomizer.Next(1, 5)];
+            return Path.Combine(_assetFolder, "assets", "images", _images[this._randomizer.Next(1, 5)]);
+        }
+
+        public string GetOutputImage(int index)
+        {
+            return Path.Combine(_assetFolder, "skiaoutput", string.Format("TestImage_{0}.png", index));
         }
 
         public string GetRandomQuote()

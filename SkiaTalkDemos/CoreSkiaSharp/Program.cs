@@ -1,19 +1,27 @@
-﻿using System;
-
-namespace CoreSkiaSharp
+﻿namespace CoreSkiaSharp
 {
+    using System;
     using System.Diagnostics;
-    using System.Threading;
-    using System.Timers;
 
-    class Program
+    using CoreSkiaSharp.Classes;
+
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Stopwatch jobTimer = new Stopwatch();
+            var testCount = 10;
+
+            var randomizer = new AssetRandomizer();
+            var imageBuilder = new SkiaImageBuilder();
+
+            var jobTimer = new Stopwatch();
             jobTimer.Start();
             Console.WriteLine("Drawing Test Images with Skia...");
-            Thread.Sleep(876);
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.WriteLine("Drawing Image {0}", i);
+                imageBuilder.BuildSingleTestImage(randomizer, i);
+            }
             Console.WriteLine("Drawing Test Complete");
             jobTimer.Stop();
             Console.WriteLine("Took {0:F2} seconds. Any key to exit.", jobTimer.Elapsed.TotalSeconds);
