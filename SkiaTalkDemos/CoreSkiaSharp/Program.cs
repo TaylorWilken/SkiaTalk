@@ -18,7 +18,7 @@
 
             var jobTimer = new Stopwatch();
             jobTimer.Start();
-            Console.WriteLine("Drawing Test Images with Skia...");
+            Console.WriteLine("Drawing Test Images with SkiaSharp in .NET Core 2.1...");
             for (var i = 1; i <= testCount; i++)
             {
                 Console.WriteLine("Drawing Image {0}", i);

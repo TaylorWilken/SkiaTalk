@@ -7,7 +7,7 @@
     {
         private readonly string _assetFolder = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-            "SkiaTalk");
+            "SkiaDemo");
 
         private readonly string[] _backgrounds = { "BG1.jpg", "BG2.jpg", "BG3.jpg", "BG4.jpg", "BG5.jpg" };
 
