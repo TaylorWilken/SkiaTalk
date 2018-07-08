@@ -19,6 +19,7 @@
 
         private readonly string[] _images = { "IMG1.png", "IMG2.png", "IMG3.png", "IMG4.png", "IMG5.png" };
 
+        // this sample text from Google Fonts.
         private readonly string[] _quotes =
             {
                 "The spectacle before us was indeed sublime.", "A red flare silhouetted the jagged edge of a wing.",
@@ -32,7 +33,10 @@
         {
             var outPath = Path.Combine(this._assetFolder, "skiaoutput");
 
-            foreach (var filePath in Directory.GetFiles(outPath)) File.Delete(filePath);
+            foreach (var filePath in Directory.GetFiles(outPath))
+            {
+                File.Delete(filePath);
+            }
         }
 
         public string GetOutputImage(int index)

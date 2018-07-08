@@ -2,7 +2,6 @@
 {
     using System;
     using System.Diagnostics;
-    using System.IO;
 
     using CoreSkiaSharp.Classes;
 
@@ -25,9 +24,13 @@
                 Console.WriteLine("Drawing Image {0}", i);
                 imageBuilder.BuildSingleTestImage(randomizer, i);
             }
+
             Console.WriteLine("Drawing Test Complete");
             jobTimer.Stop();
-            Console.WriteLine("Took {0:F2} seconds. Any key to exit.", jobTimer.Elapsed.TotalSeconds);
+            Console.WriteLine(
+                "Drew {0} images in {1:F2} seconds. Any key to exit.",
+                testCount,
+                jobTimer.Elapsed.TotalSeconds);
             Console.ReadKey();
         }
     }
