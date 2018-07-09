@@ -33,6 +33,8 @@
         {
             var outPath = Path.Combine(this._assetFolder, "skiaoutput");
 
+            Directory.CreateDirectory(outPath);
+
             foreach (var filePath in Directory.GetFiles(outPath))
             {
                 File.Delete(filePath);
